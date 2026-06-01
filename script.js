@@ -29,6 +29,46 @@ let snake = [
 window.addEventListener("keydown", changeDirection);
 resetBtn.addEventListener("click", resetGame);
 
+document.getElementById("upBtn")
+.addEventListener("click", () => {
+
+    if(yVelocity != unitSize){
+        xVelocity = 0;
+        yVelocity = -unitSize;
+    }
+
+});
+
+document.getElementById("downBtn")
+.addEventListener("click", () => {
+
+    if(yVelocity != -unitSize){
+        xVelocity = 0;
+        yVelocity = unitSize;
+    }
+
+});
+
+document.getElementById("leftBtn")
+.addEventListener("click", () => {
+
+    if(xVelocity != unitSize){
+        xVelocity = -unitSize;
+        yVelocity = 0;
+    }
+
+});
+
+document.getElementById("rightBtn")
+.addEventListener("click", () => {
+
+    if(xVelocity != -unitSize){
+        xVelocity = unitSize;
+        yVelocity = 0;
+    }
+
+});
+
 gameStart();
 
 function gameStart(){
@@ -213,3 +253,48 @@ function resetGame(){
 
     gameStart();
 }
+
+let touchStartX = 0;
+let touchStartY = 0;
+
+gameBoard.addEventListener("touchstart", function(e){
+
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+
+});
+
+gameBoard.addEventListener("touchend", function(e){
+
+    let touchEndX = e.changedTouches[0].clientX;
+    let touchEndY = e.changedTouches[0].clientY;
+
+    let dx = touchEndX - touchStartX;
+    let dy = touchEndY - touchStartY;
+
+    if(Math.abs(dx) > Math.abs(dy)){
+
+        if(dx > 0 && xVelocity != -unitSize){
+            xVelocity = unitSize;
+            yVelocity = 0;
+        }
+        else if(dx < 0 && xVelocity != unitSize){
+            xVelocity = -unitSize;
+            yVelocity = 0;
+        }
+
+    }
+    else{
+
+        if(dy > 0 && yVelocity != -unitSize){
+            xVelocity = 0;
+            yVelocity = unitSize;
+        }
+        else if(dy < 0 && yVelocity != unitSize){
+            xVelocity = 0;
+            yVelocity = -unitSize;
+        }
+
+    }
+
+});

@@ -33,3 +33,62 @@ body{
     background: lime;
     font-weight: bold;
 }
+
+h1{
+    color: lime;
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+#gameBoard{
+    border: 4px solid lime;
+    border-radius: 10px;
+    box-shadow: 0 0 20px lime;
+}
+
+#scoreText{
+    color: lime;
+    text-shadow: 0 0 10px lime;
+}
+
+#controls{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.middle-row{
+    display: flex;
+    gap: 10px;
+}
+
+.control-btn{
+    width: 70px;
+    height: 70px;
+    font-size: 30px;
+    border: none;
+    border-radius: 15px;
+    background: lime;
+    color: black;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.control-btn:active{
+    transform: scale(0.9);
+}
+
+@media(max-width: 600px){
+
+    #gameBoard{
+        width: 90vw;
+        height: 90vw;
+    }
+
+    #scoreText{
+        font-size: 50px;
+    }
+
+}

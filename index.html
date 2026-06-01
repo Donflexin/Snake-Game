@@ -1,24 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Snake Game</title>
+    <title>Paul's Snake Game</title>
 
     <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-
+  </head>
+  <body>
     <div id="gameContainer">
+        <h1>🐍 Snake Game</h1>
+      <canvas id="gameBoard" width="500" height="500"></canvas>
 
-        <canvas id="gameBoard" width="500" height="500"></canvas>
+      <div id="scoreText">0</div>
 
-        <div id="scoreText">0</div>
-
-        <button id="resetBtn">Reset</button>
-
+      <button id="resetBtn">Reset</button>
     </div>
 
+    <div id="controls">
+
+  <button class="control-btn" id="upBtn">⬆️</button>
+
+  <div class="middle-row">
+    <button class="control-btn" id="leftBtn">⬅️</button>
+    <button class="control-btn" id="rightBtn">➡️</button>
+  </div>
+
+  <button class="control-btn" id="downBtn">⬇️</button>
+
+</div>
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
